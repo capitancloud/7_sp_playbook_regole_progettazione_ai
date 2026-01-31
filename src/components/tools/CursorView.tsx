@@ -24,7 +24,8 @@ import {
   Cpu,
   Eye,
   Edit3,
-  GitBranch
+  GitBranch,
+  ExternalLink
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -85,6 +86,17 @@ export function CursorView({ onBack }: CursorViewProps) {
             L'editor di codice che ha <span className="text-primary font-semibold">rivoluzionato</span> il modo di programmare.
             Non è un plugin, è un <span className="text-foreground font-medium">fork completo di VS Code</span> con AI integrata a livello profondo.
           </p>
+
+          {/* CTA Button */}
+          <a 
+            href="https://www.cursor.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+          >
+            <ExternalLink className="h-5 w-5" />
+            Visita cursor.com
+          </a>
 
           {/* Quick Stats */}
           <div className="flex flex-wrap items-center gap-4 mt-8">
