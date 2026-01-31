@@ -1261,7 +1261,230 @@ Scrivi codice robusto e riutilizzabile.`
     description: "Prompt per identificare e risolvere bug nel codice",
     icon: "Bug",
     colorVar: "--phase-5",
-    prompts: []
+    prompts: [
+      {
+        id: "5.1",
+        title: "Leggere uno stack trace e trovare la riga che rompe tutto",
+        description: "Analisi professionale di stack trace per individuare il problema",
+        useCase: "Quando hai uno stack trace davanti e vuoi capire esattamente quale riga di codice causa l'errore, ignorando il rumore.",
+        expectedOutput: [
+          "Spiegazione della struttura di uno stack trace",
+          "Tecniche per individuare il punto di rottura reale",
+          "Distinzione tra chiamate rilevanti e irrilevanti",
+          "Metodo sistematico per risalire alla causa"
+        ],
+        content: `Ho davanti uno stack trace.
+
+Voglio che tu mi aiuti a leggerlo come farebbe uno sviluppatore senior.
+
+Procedi così:
+1) spiegami cos'è uno stack trace e come è strutturato
+2) mostrami come individuare:
+   - il vero punto di rottura
+   - le chiamate irrilevanti
+3) spiegami come risalire alla riga di codice responsabile
+4) dimmi cosa controllare subito e cosa ignorare
+
+Usa esempi concreti.
+Trattami come uno sviluppatore che vuole imparare a leggerli da solo.`
+      },
+      {
+        id: "5.2",
+        title: "Capire perché \"non funziona\" anche senza errori evidenti",
+        description: "Approccio sistematico per bug silenziosi",
+        useCase: "Quando il programma non fa quello che dovrebbe ma non mostra errori, e hai bisogno di un metodo strutturato per trovare il problema.",
+        expectedOutput: [
+          "Checklist di debug ordinata per priorità",
+          "Separazione tra problemi di logica, stato, configurazione",
+          "Metodo per restringere il problema passo dopo passo",
+          "Tecniche per evitare i tunnel mentali"
+        ],
+        content: `Il programma non funziona come dovrebbe, ma non mostra errori evidenti.
+
+Voglio un approccio sistematico per capire cosa sta succedendo.
+
+Procedi così:
+1) crea una checklist di debug ordinata
+2) separa problemi di:
+   - logica
+   - stato
+   - configurazione
+   - ambiente
+3) dimmi cosa verificare per primo e perché
+4) mostrami come restringere il problema passo dopo passo
+
+Niente risposte vaghe.
+Voglio metodo, non tentativi casuali.`
+      },
+      {
+        id: "5.3",
+        title: "Aggiungere logging utile (backend e frontend)",
+        description: "Logging strategico per debug efficace",
+        useCase: "Quando vuoi aggiungere log che siano davvero utili per capire cosa succede a runtime, senza riempire la console di rumore.",
+        expectedOutput: [
+          "Linee guida su cosa loggare e cosa evitare",
+          "Esempi pratici per ogni livello (debug, info, warning, error)",
+          "Punti strategici dove inserire i log",
+          "Tecniche per leggere i log efficacemente"
+        ],
+        content: `Voglio aggiungere logging utile al mio progetto.
+
+Obiettivi:
+- capire cosa succede davvero a runtime
+- evitare log inutili
+- rendere il debug più semplice
+
+Procedi così:
+1) spiegami cosa loggare e cosa NON loggare
+2) mostra esempi di logging utile
+3) differenzia:
+   - debug
+   - info
+   - warning
+   - error
+4) fammi capire dove inserire i log
+5) spiegami come leggere i log in modo efficace
+
+Parla da sviluppatore a sviluppatore.`
+      },
+      {
+        id: "5.4",
+        title: "Riprodurre un bug in modo controllato",
+        description: "Tecniche per isolare e replicare bug intermittenti",
+        useCase: "Quando hai un bug che appare e scompare in modo irregolare e hai bisogno di riprodurlo in modo affidabile per poterlo risolvere.",
+        expectedOutput: [
+          "Spiegazione dell'importanza della riproducibilità",
+          "Tecniche per isolare il contesto minimo",
+          "Metodi per eliminare variabili confondenti",
+          "Criteri per verificare che il bug sia davvero riprodotto"
+        ],
+        content: `Ho un bug che si manifesta in modo irregolare.
+
+Voglio imparare a riprodurlo in modo controllato.
+
+Procedi così:
+1) spiegami perché riprodurre un bug è fondamentale
+2) mostrami come isolare il contesto minimo
+3) dimmi come eliminare variabili inutili
+4) mostrami tecniche per forzare il bug
+5) spiegami quando un bug è davvero riprodotto
+
+Usa esempi concreti e realistici.`
+      },
+      {
+        id: "5.5",
+        title: "Scrivere un test che cattura un bug",
+        description: "Test di regressione per prevenire bug futuri",
+        useCase: "Quando hai individuato un bug e vuoi scrivere un test che fallisce prima del fix e passa dopo, per evitare regressioni.",
+        expectedOutput: [
+          "Test minimo che cattura il bug specifico",
+          "Spiegazione del ciclo fail-fix-pass",
+          "Integrazione del test nel progetto",
+          "Prevenzione regressioni future"
+        ],
+        content: `Ho individuato un bug e voglio scrivere un test che lo catturi.
+
+Obiettivi:
+- test che fallisce prima del fix
+- test che passa dopo il fix
+- prevenzione regressioni future
+
+Procedi così:
+1) spiegami il concetto di test che cattura un bug
+2) mostra come scrivere il test minimo
+3) spiega come leggere il fallimento del test
+4) dimmi quando il test è sufficiente
+5) mostra come integrare il test nel progetto
+
+Non voglio teoria, voglio pratica.`
+      },
+      {
+        id: "5.6",
+        title: "Sistemare errori di configurazione ambiente",
+        description: "Diagnosi di problemi \"funziona sulla mia macchina\"",
+        useCase: "Quando il progetto funziona su una macchina ma non su un'altra, e devi capire quali differenze di ambiente causano il problema.",
+        expectedOutput: [
+          "Elenco cause comuni di discrepanze",
+          "Metodo per confrontare due ambienti",
+          "Tecniche per rendere il setup ripetibile",
+          "Prevenzione problemi futuri"
+        ],
+        content: `Il progetto funziona su una macchina ma non su un'altra.
+
+Voglio diagnosticare e sistemare problemi di configurazione ambiente.
+
+Procedi così:
+1) elenca le cause più comuni
+2) separa:
+   - variabili d'ambiente
+   - versioni runtime
+   - dipendenze
+   - permessi
+3) dimmi come confrontare due ambienti
+4) mostrami come rendere il setup ripetibile
+5) spiega come evitare questi problemi in futuro
+
+Voglio metodo, non tentativi a caso.`
+      },
+      {
+        id: "5.7",
+        title: "Diagnosticare problemi di rete, API o database",
+        description: "Debug strutturato per problemi di comunicazione",
+        useCase: "Quando qualcosa non funziona nella comunicazione tra frontend/backend, API esterne o database, e devi capire dove si rompe il flusso.",
+        expectedOutput: [
+          "Mappa del flusso completo della richiesta",
+          "Punti di test per ogni segmento",
+          "Distinzione tra problema di rete, codice o configurazione",
+          "Strumenti e tecniche pratiche"
+        ],
+        content: `Ho problemi di comunicazione tra:
+- frontend e backend
+- backend e API esterne
+- backend e database
+
+Voglio un approccio strutturato per capire dove si rompe il flusso.
+
+Procedi così:
+1) mappa il flusso completo della richiesta
+2) mostrami come testare ogni punto
+3) dimmi cosa loggare
+4) spiega come distinguere:
+   - problema di rete
+   - problema di codice
+   - problema di configurazione
+5) mostra strumenti e tecniche pratiche
+
+Parla come un debugger esperto.`
+      },
+      {
+        id: "5.8",
+        title: "Usare Cursor come checklist di debug guidato",
+        description: "Debug interattivo con guida passo passo",
+        useCase: "Quando vuoi un processo di debug guidato che ti faccia domande e ti aiuti a ragionare, invece di darti subito soluzioni.",
+        expectedOutput: [
+          "Checklist interattiva di debug",
+          "Domande guidate per isolare il problema",
+          "Adattamento dinamico alle risposte",
+          "Focus sul ragionamento, non sulle soluzioni immediate"
+        ],
+        content: `Voglio usare Cursor come assistente di debug guidato.
+
+Obiettivo:
+- non dimenticare nulla
+- seguire un processo ordinato
+- evitare tunnel mentali
+
+Agisci così:
+1) comportati come checklist interattiva di debug
+2) fammi domande una alla volta
+3) guidami nella verifica dei punti critici
+4) adattati alle risposte che ti do
+5) aiutami a isolare il problema reale
+
+Non darmi subito soluzioni.
+Guidami nel ragionamento.`
+      }
+    ]
   },
   {
     id: "analisi-codice",
