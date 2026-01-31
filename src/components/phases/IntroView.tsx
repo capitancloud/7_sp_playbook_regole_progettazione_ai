@@ -44,7 +44,7 @@ export function IntroView({ onPhaseChange }: IntroViewProps) {
             <span className="text-gradient">AI</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-            Un approccio disciplinato per lavorare con AI coding assistants. 
+            Un approccio disciplinato per lavorare con <span className="text-primary font-semibold">Cursor</span> e altri AI coding assistants. 
             Non impari un linguaggio, ma un <span className="text-foreground font-medium">processo ripetibile</span> e <span className="text-foreground font-medium">professionale</span>.
           </p>
 
