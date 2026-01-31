@@ -104,6 +104,7 @@ const tools: Tool[] = [
     icon: Github,
     description: "AI pair programmer by GitHub",
     colorVar: "--phase-cycle",
+    hasContent: true,
   },
 ];
 
