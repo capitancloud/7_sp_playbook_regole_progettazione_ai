@@ -3553,6 +3553,200 @@ Voglio ordine, non rigidità estrema.`
     description: "Prompt avanzati ma accessibili per velocizzare il lavoro",
     icon: "Sparkles",
     colorVar: "--phase-7",
-    prompts: []
+    prompts: [
+      {
+        id: "16.1",
+        title: "Spiegare qualsiasi codice come se fossi un principiante",
+        description: "Spiegazione riga per riga con metafore e esempi semplici",
+        useCase: "Quando trovi codice che non capisci e vuoi che ti venga spiegato come se fosse la prima volta che programmi.",
+        expectedOutput: [
+          "Spiegazione generale del codice",
+          "Analisi riga per riga",
+          "Metafore e esempi concreti",
+          "Riassunto del flusso completo"
+        ],
+        content: `Voglio che tu spieghi questo codice come se stessi parlando a una persona che ha appena iniziato a programmare.
+
+Regole fondamentali:
+- non dare nulla per scontato
+- spiega ogni concetto prima di usarlo
+- usa esempi concreti e metafore semplici
+- evita termini avanzati se non strettamente necessari
+- se un termine è inevitabile, spiegalo subito
+
+Procedi così:
+1) spiegami a grandi linee cosa fa il codice
+2) poi scendiamo riga per riga
+3) per ogni riga dimmi:
+   - cosa fa
+   - perché esiste
+   - cosa succederebbe se non ci fosse
+4) alla fine fammi un riassunto semplice di tutto il flusso
+
+Il mio obiettivo non è copiare il codice, ma capirlo davvero.`
+      },
+      {
+        id: "16.2",
+        title: "Aggiungere commenti riga per riga a codice esistente",
+        description: "Trasformare codice oscuro in materiale di studio",
+        useCase: "Quando hai codice che non hai scritto tu e vuoi trasformarlo in materiale di studio con commenti esplicativi.",
+        expectedOutput: [
+          "File originale con commenti aggiunti",
+          "Spiegazione di ogni riga/blocco",
+          "Segnalazione di righe poco chiare",
+          "Comportamento del codice invariato"
+        ],
+        content: `Sto lavorando con del codice che non ho scritto io.
+
+Voglio che tu aggiunga commenti riga per riga per renderlo comprensibile a un principiante.
+
+Procedi così:
+1) leggi tutto il file prima di commentare
+2) aggiungi commenti direttamente nel codice
+3) ogni commento deve spiegare:
+   - cosa fa la riga o il blocco
+   - perché è stato scritto così
+4) se una riga è inutile o poco chiara, segnalalo
+5) NON cambiare il comportamento del codice
+
+Il risultato deve essere un file che posso studiare riga per riga.`
+      },
+      {
+        id: "16.3",
+        title: "Refactor automatico con spiegazione delle modifiche",
+        description: "Migliorare codice funzionante imparando le buone pratiche",
+        useCase: "Quando hai codice che funziona ma è scritto male e vuoi migliorarlo capendo ogni modifica.",
+        expectedOutput: [
+          "Problemi del codice originale spiegati",
+          "Strategia di miglioramento proposta",
+          "Codice riscritto in modo leggibile",
+          "Spiegazione di ogni cambiamento"
+        ],
+        content: `Ho del codice che funziona ma è scritto male.
+
+Voglio che tu faccia refactor automatico mantenendo lo stesso comportamento.
+
+Procedi così:
+1) analizza il codice originale e spiegami i problemi principali
+2) proponi una strategia di miglioramento semplice
+3) riscrivi il codice in modo più leggibile
+4) dopo ogni cambiamento importante spiegami:
+   - cosa hai cambiato
+   - perché è meglio
+5) assicurati che il comportamento finale sia identico all'originale
+
+Trattami come uno studente che vuole imparare buone pratiche.`
+      },
+      {
+        id: "16.4",
+        title: "Scrivere test, commenti e documentazione partendo da zero",
+        description: "Creare codice completo e comprensibile fin dall'inizio",
+        useCase: "Quando parti da zero e vuoi creare codice con test, commenti e documentazione integrati fin dall'inizio.",
+        expectedOutput: [
+          "Codice scritto passo passo",
+          "Commenti su ogni parte importante",
+          "Test base funzionanti",
+          "Documentazione di utilizzo"
+        ],
+        content: `Sto partendo da zero con un progetto o uno script.
+
+Voglio che tu:
+- scriva codice
+- aggiunga commenti chiari
+- scriva test semplici
+- crei una mini documentazione
+
+Procedi così:
+1) spiega cosa stiamo costruendo
+2) scrivi il codice passo passo
+3) commenta ogni parte importante
+4) scrivi test base per verificare che funzioni
+5) crea una breve documentazione che spieghi:
+   - cosa fa
+   - come si usa
+   - come modificarlo
+
+Il risultato deve essere comprensibile a chi inizia oggi.`
+      },
+      {
+        id: "16.5",
+        title: "Partire da un'idea in linguaggio naturale e arrivare a un progetto funzionante",
+        description: "Dall'idea confusa al codice funzionante, passo dopo passo",
+        useCase: "Quando hai un'idea descritta a parole e vuoi trasformarla in un progetto reale capendo ogni passaggio.",
+        expectedOutput: [
+          "Idea chiarita con domande",
+          "Requisiti concreti definiti",
+          "Piano passo passo creato",
+          "Progetto implementato con spiegazioni"
+        ],
+        content: `Ho un'idea descritta in linguaggio naturale.
+
+Voglio trasformarla in un progetto funzionante.
+
+Procedi così:
+1) aiutami a chiarire l'idea con domande semplici
+2) trasformala in requisiti concreti
+3) proponi una soluzione tecnica semplice
+4) crea un piano passo passo
+5) implementa il progetto partendo da una cartella vuota
+6) spiegami ogni passaggio mentre lo fai
+
+Il focus è sul processo, non solo sul risultato finale.`
+      },
+      {
+        id: "16.6",
+        title: "Capire cosa succede davvero quando clicchi un bottone o lanci uno script",
+        description: "Tracciare il flusso dall'azione al risultato",
+        useCase: "Quando vuoi capire il percorso completo di un'azione: dal click o comando fino al risultato finale.",
+        expectedOutput: [
+          "Flusso dall'azione al risultato descritto",
+          "Cosa succede nel browser/sistema",
+          "Percorso nel codice e nei dati",
+          "Punti critici dove nascono errori"
+        ],
+        content: `Voglio capire cosa succede davvero quando:
+- clicco un bottone in una UI
+- lancio uno script da terminale
+
+Procedi così:
+1) descrivi il flusso dall'azione iniziale al risultato finale
+2) spiega cosa succede:
+   - nel browser o nel sistema
+   - nel codice
+   - nei dati
+3) mostra il percorso passo passo
+4) evidenzia i punti dove possono nascere errori
+5) riassumi tutto in modo semplice alla fine
+
+Voglio una spiegazione concreta, non astratta.`
+      },
+      {
+        id: "16.7",
+        title: "Trasformare \"non so da dove partire\" in un piano concreto",
+        description: "Da confusione totale a roadmap realizzabile",
+        useCase: "Quando sei bloccato dalla confusione e non sai da dove iniziare con un progetto o un'idea.",
+        expectedOutput: [
+          "Idee messe in ordine",
+          "Essenziale separato dal rimandabile",
+          "Primo passo concreto definito",
+          "Roadmap minimale creata"
+        ],
+        content: `Non so da dove partire con questo progetto.
+
+Voglio che tu mi aiuti a trasformare confusione in un piano concreto.
+
+Agisci così:
+1) fammi spiegare l'obiettivo anche in modo disordinato
+2) aiutami a mettere ordine nelle idee
+3) separa:
+   - cosa è essenziale
+   - cosa può aspettare
+4) proponi un primo passo semplice e realizzabile
+5) crea una roadmap minimale
+6) dimmi cosa fare oggi, non tra sei mesi
+
+Trattami come una persona che vuole iniziare, non come un esperto.`
+      }
+    ]
   }
 ];
