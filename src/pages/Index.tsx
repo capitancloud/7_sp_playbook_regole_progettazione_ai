@@ -12,6 +12,7 @@ import { WindsurfView } from "@/components/tools/WindsurfView";
 import { ClaudeCodeView } from "@/components/tools/ClaudeCodeView";
 import { LovableView } from "@/components/tools/LovableView";
 import { ReplitView } from "@/components/tools/ReplitView";
+import { BoltView } from "@/components/tools/BoltView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -57,6 +58,9 @@ const Index = () => {
       }
       if (selectedTool === "replit") {
         return <ReplitView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "bolt") {
+        return <BoltView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
