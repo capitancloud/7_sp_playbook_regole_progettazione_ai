@@ -16,6 +16,7 @@ import { BoltView } from "@/components/tools/BoltView";
 import { RorkView } from "@/components/tools/RorkView";
 import { Base44View } from "@/components/tools/Base44View";
 import { FigmaView } from "@/components/tools/FigmaView";
+import { GitHubCopilotView } from "@/components/tools/GitHubCopilotView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -73,6 +74,9 @@ const Index = () => {
       }
       if (selectedTool === "figma") {
         return <FigmaView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "github-copilot") {
+        return <GitHubCopilotView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
