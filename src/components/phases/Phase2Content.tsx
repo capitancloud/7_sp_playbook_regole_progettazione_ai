@@ -11,6 +11,9 @@ import {
   Clock,
   ChevronDown,
   ChevronUp,
+  Layers,
+  Puzzle,
+  Scale,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -367,10 +370,57 @@ export function Phase2Content() {
             <span className="text-2xl font-bold text-phase-2">2</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Scelta dello Stack</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold tracking-tight">Scelta dello Stack</h1>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-phase-2/10 px-3 py-1 text-xs font-medium text-phase-2 border border-phase-2/20">
+                SETUP
+              </span>
+            </div>
             <p className="mt-1 text-lg text-muted-foreground">
               Decisioni tecnologiche, motivazioni e compromessi accettati.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-2/30 bg-gradient-to-br from-phase-2/5 to-phase-2/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-2/15">
+              <Layers className="h-5 w-5 text-phase-2" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Lo stack tecnologico è l'insieme di <span className="text-foreground font-medium">strumenti e linguaggi</span> che userai per costruire l'app.
+                Scegliere lo stack giusto significa <span className="text-foreground font-medium">meno problemi</span>, <span className="text-foreground font-medium">meno configurazione</span> e un MVP che arrivi davvero alla fine.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Puzzle className="h-4 w-4 text-phase-2" />
+                <span className="text-sm font-medium">Semplicità</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Scegli strumenti che riducono la complessità.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Scale className="h-4 w-4 text-phase-2" />
+                <span className="text-sm font-medium">Tradeoff</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Ogni scelta ha pro e contro: conoscili.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="h-4 w-4 text-phase-2" />
+                <span className="text-sm font-medium">Documentazione</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Scrivi le scelte in tech_stack.md per non dimenticarle.</p>
+            </div>
           </div>
         </div>
       </div>

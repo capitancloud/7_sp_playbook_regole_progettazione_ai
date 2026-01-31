@@ -15,6 +15,9 @@ import {
   MessageSquare,
   HardDrive,
   Ban,
+  FolderTree,
+  Rocket,
+  Settings,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -389,10 +392,58 @@ export function Phase4Content() {
             <span className="text-2xl font-bold text-phase-4">4</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Inizializzazione del Progetto</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold tracking-tight">Inizializzazione del Progetto</h1>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-phase-4/10 px-3 py-1 text-xs font-medium text-phase-4 border border-phase-4/20">
+                SETUP
+              </span>
+            </div>
             <p className="mt-1 text-lg text-muted-foreground">
               Setup iniziale, struttura del progetto, verifica base stabile.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-4/30 bg-gradient-to-br from-phase-4/5 to-phase-4/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-4/15">
+              <FolderTree className="h-5 w-5 text-phase-4" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Questa è l'ultima fase di <span className="text-foreground font-medium">preparazione</span>. Qui crei la struttura del progetto: 
+                cartelle, file di configurazione, dipendenze. L'obiettivo è avere una base stabile che <span className="text-foreground font-medium">parte senza errori</span> e 
+                su cui costruire le feature.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Settings className="h-4 w-4 text-phase-4" />
+                <span className="text-sm font-medium">Configurazione</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Solo setup tecnico, nessuna logica business.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Rocket className="h-4 w-4 text-phase-4" />
+                <span className="text-sm font-medium">Dev server</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Alla fine, il progetto deve partire senza errori.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="h-4 w-4 text-phase-4" />
+                <span className="text-sm font-medium">Verifica</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Una checklist per confermare che tutto funziona.</p>
+            </div>
           </div>
         </div>
       </div>

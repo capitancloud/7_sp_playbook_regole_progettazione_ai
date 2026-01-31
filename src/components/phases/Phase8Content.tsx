@@ -15,6 +15,9 @@ import {
   Save,
   Shield,
   FolderCheck,
+  MapPin,
+  GitCommit,
+  BookOpen,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -374,6 +377,49 @@ export function Phase8Content() {
             <p className="mt-1 text-lg text-muted-foreground">
               Riepilogo lavoro, stato progetto, preparazione alla ripresa futura.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-8/30 bg-gradient-to-br from-phase-8/5 to-phase-8/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-8/15">
+              <BookOpen className="h-5 w-5 text-phase-8" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Un progetto non è "finito" se non è <span className="text-foreground font-medium">riprendibile senza stress</span>.
+                Questa fase serve a <span className="text-foreground font-medium">scaricare la memoria del progetto su file</span>: 
+                riepiloghi, mappe, todo aggiornati, verifiche di stabilità. Non è burocrazia: è sicurezza operativa.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <FileCheck className="h-4 w-4 text-phase-8" />
+                <span className="text-sm font-medium">Riepilogo</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Cosa hai fatto, quali file, come testare.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <MapPin className="h-4 w-4 text-phase-8" />
+                <span className="text-sm font-medium">Mappa</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Stato delle feature: completate, in corso, future.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <GitCommit className="h-4 w-4 text-phase-8" />
+                <span className="text-sm font-medium">Commit</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Un commit = una cosa sensata finita.</p>
+            </div>
           </div>
         </div>
       </div>
