@@ -40,6 +40,7 @@ const tools: Tool[] = [
     icon: Wind,
     description: "AI coding assistant con flow agents",
     colorVar: "--phase-6",
+    hasContent: true,
   },
   {
     id: "claude-code",
