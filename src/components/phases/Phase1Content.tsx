@@ -11,6 +11,7 @@ import {
   Clock,
   ChevronDown,
   ChevronUp,
+  Target,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -335,10 +336,57 @@ export function Phase1Content() {
             <span className="text-2xl font-bold text-phase-1">1</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Definizione e Strategia</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold tracking-tight">Definizione e Strategia</h1>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-phase-1/10 px-3 py-1 text-xs font-medium text-phase-1 border border-phase-1/20">
+                SETUP
+              </span>
+            </div>
             <p className="mt-1 text-lg text-muted-foreground">
               Visione del progetto, requisiti, vincoli. Chiarezza su cosa costruire.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-1/30 bg-gradient-to-br from-phase-1/5 to-phase-1/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-1/15">
+              <Target className="h-5 w-5 text-phase-1" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Prima di scrivere una sola riga di codice, devi sapere <span className="text-foreground font-medium">cosa stai costruendo</span> e <span className="text-foreground font-medium">per chi</span>. 
+                Senza questa chiarezza, l'AI genererà codice "a caso" e tu perderai il controllo del progetto.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Lightbulb className="h-4 w-4 text-phase-1" />
+                <span className="text-sm font-medium">Vision</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Definisci il problema che risolvi e per chi.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="h-4 w-4 text-phase-1" />
+                <span className="text-sm font-medium">MVP</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Solo le feature essenziali, niente di più.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="h-4 w-4 text-phase-1" />
+                <span className="text-sm font-medium">Vincoli</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Cosa NON farai è importante quanto cosa farai.</p>
+            </div>
           </div>
         </div>
       </div>

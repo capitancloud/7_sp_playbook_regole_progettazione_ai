@@ -13,6 +13,9 @@ import {
   ChevronUp,
   PenTool,
   MessageSquare,
+  Shield,
+  ScrollText,
+  Brain,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -387,10 +390,58 @@ export function Phase3Content() {
             <span className="text-2xl font-bold text-phase-3">3</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Regole e Qualità</h1>
+            <div className="flex items-center gap-3">
+              <h1 className="text-3xl font-bold tracking-tight">Regole e Qualità</h1>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-phase-3/10 px-3 py-1 text-xs font-medium text-phase-3 border border-phase-3/20">
+                SETUP
+              </span>
+            </div>
             <p className="mt-1 text-lg text-muted-foreground">
               Regole di lavoro con l'AI, linee guida sul codice, disciplina.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-3/30 bg-gradient-to-br from-phase-3/5 to-phase-3/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-3/15">
+              <Shield className="h-5 w-5 text-phase-3" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                L'AI è potente ma <span className="text-foreground font-medium">va guidata</span>. Senza regole chiare, Cursor prenderà iniziative non richieste,
+                creerà file inutili e introdurrà complessità. Il file <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">.cursorrules</code> è 
+                la <span className="text-foreground font-medium">"costituzione"</span> del progetto: definisce come l'AI deve comportarsi.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <ScrollText className="h-4 w-4 text-phase-3" />
+                <span className="text-sm font-medium">.cursorrules</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Un file che "programma" il comportamento dell'AI.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Brain className="h-4 w-4 text-phase-3" />
+                <span className="text-sm font-medium">Controllo</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Rallenta l'AI e mantieni tu il controllo.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="h-4 w-4 text-phase-3" />
+                <span className="text-sm font-medium">Prevenzione</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Blocca le derive tipiche prima che accadano.</p>
+            </div>
           </div>
         </div>
       </div>

@@ -14,6 +14,9 @@ import {
   Database,
   Shield,
   AlertCircle,
+  Lock,
+  UserCheck,
+  FileWarning,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -407,6 +410,49 @@ export function Phase6Content() {
             <p className="mt-1 text-lg text-muted-foreground">
               Gestione dati, regole di accesso, validazione e comportamenti sicuri.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-6/30 bg-gradient-to-br from-phase-6/5 to-phase-6/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-6/15">
+              <Shield className="h-5 w-5 text-phase-6" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Ogni feature che crea, legge o modifica dati ha bisogno di <span className="text-foreground font-medium">regole chiare</span>.
+                Chi può vedere cosa? Chi può modificare? Cosa succede se l'input è sbagliato? Questa fase ti obbliga a pensarci 
+                <span className="text-foreground font-medium"> prima di costruire il database</span>, evitando errori costosi.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Database className="h-4 w-4 text-phase-6" />
+                <span className="text-sm font-medium">Modello dati</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Prima la mappa concettuale, poi lo schema tecnico.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <UserCheck className="h-4 w-4 text-phase-6" />
+                <span className="text-sm font-medium">Autorizzazioni</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Chi può creare, leggere, modificare, cancellare.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <FileWarning className="h-4 w-4 text-phase-6" />
+                <span className="text-sm font-medium">Validazione</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Input utente sempre validato, errori gestiti.</p>
+            </div>
           </div>
         </div>
       </div>

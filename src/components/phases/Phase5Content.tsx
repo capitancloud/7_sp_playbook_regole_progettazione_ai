@@ -15,6 +15,9 @@ import {
   MessageSquare,
   GitBranch,
   ArrowRight,
+  Code2,
+  FileText,
+  ListChecks,
 } from "lucide-react";
 
 interface PromptUnit {
@@ -471,6 +474,49 @@ export function Phase5Content() {
             <p className="mt-1 text-lg text-muted-foreground">
               Una feature alla volta: specifica, piano, implementazione controllata.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Introduction for Beginners */}
+      <div className="rounded-xl border border-phase-5/30 bg-gradient-to-br from-phase-5/5 to-phase-5/10 p-6">
+        <div className="space-y-4">
+          <div className="flex items-start gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-phase-5/15">
+              <Code2 className="h-5 w-5 text-phase-5" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg">Perché questa fase è fondamentale</h3>
+              <p className="mt-2 text-muted-foreground leading-relaxed">
+                Qui inizia il <span className="text-foreground font-medium">ciclo iterativo</span>: questa fase si ripete per ogni feature dell'MVP.
+                Il segreto è <span className="text-foreground font-medium">non scrivere mai codice subito</span>: prima la specifica, poi il piano, poi l'implementazione 
+                controllata step-by-step. Questo evita bug, confusione e dipendenza dall'AI.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-3 md:grid-cols-3 mt-4">
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <FileText className="h-4 w-4 text-phase-5" />
+                <span className="text-sm font-medium">SPEC prima</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Scrivi cosa deve fare la feature prima di costruirla.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <ListChecks className="h-4 w-4 text-phase-5" />
+                <span className="text-sm font-medium">Step piccoli</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Implementa uno step alla volta, verifica, poi prosegui.</p>
+            </div>
+            <div className="rounded-lg bg-background/50 border border-border p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="h-4 w-4 text-phase-5" />
+                <span className="text-sm font-medium">Chiusura</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Una feature è finita solo quando è testata e documentata.</p>
+            </div>
           </div>
         </div>
       </div>
