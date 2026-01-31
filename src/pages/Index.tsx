@@ -8,6 +8,7 @@ import { PromptsView } from "@/components/prompts/PromptsView";
 import { PromptCategoryView } from "@/components/prompts/PromptCategoryView";
 import { ToolsView } from "@/components/tools/ToolsView";
 import { CursorView } from "@/components/tools/CursorView";
+import { WindsurfView } from "@/components/tools/WindsurfView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -41,6 +42,9 @@ const Index = () => {
     if (activePhase === "tools") {
       if (selectedTool === "cursor") {
         return <CursorView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "windsurf") {
+        return <WindsurfView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
