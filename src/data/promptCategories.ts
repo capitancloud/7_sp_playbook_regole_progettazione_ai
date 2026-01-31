@@ -2843,7 +2843,167 @@ Voglio una soluzione usabile in produzione.`
     description: "Prompt per connettere servizi esterni e creare workflow",
     icon: "Link",
     colorVar: "--phase-3",
-    prompts: []
+    prompts: [
+      {
+        id: "12.1",
+        title: "Inviare SMS dopo un acquisto",
+        description: "Integrazione SMS con provider reale e gestione errori",
+        useCase: "Quando vuoi inviare SMS automatici di conferma dopo un evento come un acquisto, con un provider reale in ambiente di test.",
+        expectedOutput: [
+          "Provider SMS scelto e configurato",
+          "Flusso acquisto → SMS implementato",
+          "Messaggio dinamico con dati utente",
+          "Gestione errori e retry base"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio inviare un SMS automatico dopo un acquisto.
+
+Scenario:
+- un utente completa un acquisto
+- il sistema invia un SMS di conferma
+
+Obiettivi:
+- integrazione con un servizio SMS reale (ambiente di test)
+- messaggio dinamico
+- gestione errori di invio
+
+Procedi così:
+1) scegli un provider SMS affidabile e comune
+2) spiega il flusso completo dell'evento "acquisto → SMS"
+3) crea la struttura del progetto
+4) implementa la logica di invio SMS
+5) gestisci errori e retry base
+6) spiega come passare da test a produzione
+
+Codice realistico, non simulazioni fittizie.`
+      },
+      {
+        id: "12.2",
+        title: "Inviare notifiche tramite Signal",
+        description: "Notifiche push automatiche via Signal",
+        useCase: "Quando vuoi inviare notifiche automatiche tramite Signal invece di SMS o email tradizionali.",
+        expectedOutput: [
+          "Spiegazione pratica dell'invio via Signal",
+          "Strumento/libreria configurato",
+          "Invio messaggio implementato",
+          "Test funzionante"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio inviare notifiche automatiche tramite Signal.
+
+Obiettivi:
+- notifiche push affidabili
+- messaggi testuali automatici
+- integrazione semplice
+
+Procedi così:
+1) spiega come funziona l'invio di messaggi via Signal a livello pratico
+2) scegli lo strumento/libreria più adatto
+3) crea struttura progetto
+4) implementa invio messaggio Signal
+5) gestisci configurazione e segreti
+6) mostra come testare l'invio
+
+Focus su integrazione reale, non teoria.`
+      },
+      {
+        id: "12.3",
+        title: "Integrare DALL·E per generare immagini",
+        description: "Generazione immagini via API con salvataggio",
+        useCase: "Quando vuoi generare immagini automaticamente da prompt testuali usando DALL·E o API simili.",
+        expectedOutput: [
+          "Integrazione API spiegata",
+          "Chiavi API gestite in sicurezza",
+          "Generazione immagini implementata",
+          "Salvataggio immagini su file/storage"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio integrare DALL·E per generare immagini automaticamente.
+
+Obiettivi:
+- generazione immagini via prompt testuale
+- salvataggio immagini generate
+- gestione errori API
+
+Procedi così:
+1) spiega a livello pratico come funziona l'integrazione
+2) crea struttura progetto
+3) gestisci chiavi API in modo sicuro
+4) implementa chiamata per generare immagini
+5) salva le immagini su file system o storage
+6) spiega limiti, costi e buone pratiche
+
+Scrivi codice pronto per essere esteso.`
+      },
+      {
+        id: "12.4",
+        title: "Collegare webhook esterni",
+        description: "Ricevere e validare eventi da servizi esterni",
+        useCase: "Quando vuoi che la tua applicazione riceva eventi automatici da servizi esterni come Stripe, GitHub, Zapier.",
+        expectedOutput: [
+          "Spiegazione webhook con esempio concreto",
+          "Endpoint per ricevere webhook creato",
+          "Validazione richieste implementata",
+          "Gestione eventi e logging"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio collegare webhook esterni alla mia applicazione.
+
+Obiettivi:
+- ricevere eventi da servizi esterni
+- validare i webhook
+- reagire agli eventi ricevuti
+
+Procedi così:
+1) spiega cos'è un webhook con un esempio concreto
+2) crea una API endpoint per ricevere webhook
+3) implementa validazione base della richiesta
+4) gestisci eventi diversi
+5) logga correttamente i webhook ricevuti
+6) spiega errori comuni e come evitarli
+
+Il webhook deve essere realmente testabile.`
+      },
+      {
+        id: "12.5",
+        title: "Automatizzare flussi tra più servizi",
+        description: "Orchestrazione eventi multi-servizio con gestione errori",
+        useCase: "Quando hai bisogno di collegare più servizi in un flusso automatico: evento A → elaborazione → azione su B e C.",
+        expectedOutput: [
+          "Flusso end-to-end definito",
+          "Ogni step implementato",
+          "Gestione fallimenti parziali",
+          "Monitoraggio e debug spiegati"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio automatizzare un flusso tra più servizi esterni.
+
+Scenario esempio:
+- evento in un servizio A
+- elaborazione interna
+- azione su servizio B e C
+
+Obiettivi:
+- flusso affidabile
+- gestione errori
+- log chiaro delle operazioni
+
+Procedi così:
+1) definisci il flusso end-to-end
+2) scegli strumenti e integrazioni adatte
+3) crea struttura progetto
+4) implementa ogni step del flusso
+5) gestisci fallimenti parziali
+6) spiega come monitorare e debuggare l'automazione
+
+Voglio una base solida, non uno script fragile.`
+      }
+    ]
   },
   {
     id: "git",
