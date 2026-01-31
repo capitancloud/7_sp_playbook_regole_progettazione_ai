@@ -72,6 +72,7 @@ const tools: Tool[] = [
     icon: Zap,
     description: "Instant full-stack web apps",
     colorVar: "--phase-3",
+    hasContent: true,
   },
   {
     id: "v0",
