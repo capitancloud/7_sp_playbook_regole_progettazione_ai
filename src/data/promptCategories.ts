@@ -1493,7 +1493,273 @@ Guidami nel ragionamento.`
     description: "Prompt per analizzare, capire e modificare codice esistente",
     icon: "Search",
     colorVar: "--phase-6",
-    prompts: []
+    prompts: [
+      {
+        id: "6.1",
+        title: "Commentare uno script riga per riga",
+        description: "Analisi didattica di codice preso da GitHub",
+        useCase: "Quando hai trovato uno script interessante su GitHub e vuoi capire esattamente cosa fa ogni riga, con spiegazioni dettagliate.",
+        expectedOutput: [
+          "Codice commentato riga per riga o blocco per blocco",
+          "Spiegazione del perché di ogni scelta",
+          "Punti ambigui o rischiosi evidenziati",
+          "Logica originale preservata"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio analizzare uno script preso da GitHub e farlo commentare riga per riga in modo didattico.
+
+Procedi così:
+1) dimmi come devo incollare o importare il codice in questa cartella (file e percorso consigliati)
+2) quando il file è presente, leggilo interamente
+3) aggiungi commenti riga per riga (o blocco per blocco se più sensato) direttamente nel codice
+4) per ogni commento spiega:
+   - cosa fa quella riga/blocco
+   - perché serve
+   - cosa succede se la cambio o la rimuovo
+5) segnala punti ambigui o rischiosi
+
+Vincoli:
+- non cambiare la logica del codice, solo commenti e chiarimenti
+- mantieni stile chiaro e pratico`
+      },
+      {
+        id: "6.2",
+        title: "Generare documentazione automatica del codice",
+        description: "Doc strutturata con standard appropriati (JSDoc, docstring, etc.)",
+        useCase: "Quando vuoi creare documentazione professionale del tuo codice che possa essere rigenerata automaticamente ad ogni modifica.",
+        expectedOutput: [
+          "Standard di documentazione appropriato allo stack",
+          "Commenti strutturati aggiunti al codice",
+          "Sistema di doc consultabile (sito statico o markdown)",
+          "Istruzioni per rigenerare la doc"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio generare documentazione automatica del codice del progetto.
+
+Procedi così:
+1) fammi creare/importare un piccolo progetto di esempio (se non esiste già)
+2) scegli lo standard di doc più adatto allo stack (es. docstring / JSDoc / OpenAPI)
+3) aggiungi commenti strutturati dove servono
+4) genera un sistema di documentazione consultabile (es. sito statico o markdown)
+5) scrivi istruzioni precise per rigenerare la doc in futuro
+
+Obiettivo finale:
+- devo poter lanciare un comando e ottenere la documentazione aggiornata.`
+      },
+      {
+        id: "6.3",
+        title: "Convertire codice da un linguaggio a un altro",
+        description: "Traduzione idiomatica mantenendo la logica",
+        useCase: "Quando hai del codice funzionante in un linguaggio e vuoi riscriverlo in un altro mantenendo la stessa logica ma con stile idiomatico.",
+        expectedOutput: [
+          "Analisi del codice sorgente",
+          "Codice tradotto in stile idiomatico del target",
+          "Gestione errori appropriata",
+          "Test o esempi di verifica"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio convertire del codice da un linguaggio a un altro mantenendo la stessa logica.
+
+Procedi così:
+1) chiedimi SOLO: linguaggio sorgente e linguaggio target (se non sono già presenti)
+2) fammi incollare il codice sorgente in un file dentro questa cartella (dimmi nome file)
+3) analizza il codice e descrivi i suoi comportamenti principali
+4) riscrivi il codice nel linguaggio target:
+   - stessa logica
+   - stile idiomatico del linguaggio target
+   - gestione errori sensata
+5) crea un piccolo set di test o esempi di input/output per verificare che la conversione sia corretta
+
+Vincoli:
+- niente traduzione "meccanica": voglio codice pulito nel linguaggio target.`
+      },
+      {
+        id: "6.4",
+        title: "Migliorare codice funzionante ma scritto male",
+        description: "Refactoring progressivo senza cambiare funzionalità",
+        useCase: "Quando hai codice che funziona ma è spaghetti code, con nomi confusi e duplicazioni, e vuoi migliorarlo senza rompere nulla.",
+        expectedOutput: [
+          "Lista problemi ordinata per impatto",
+          "Refactoring progressivo con spiegazioni",
+          "Confronto prima/dopo",
+          "Checklist di regole per il futuro"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio migliorare codice che funziona ma è scritto male (spaghetti, nomi confusi, duplicazioni).
+
+Procedi così:
+1) fammi incollare il codice in un file dentro questa cartella (dimmi nome file)
+2) analizza e produci una lista di problemi ordinata per impatto:
+   - leggibilità
+   - manutenibilità
+   - performance (solo se rilevante)
+   - bug potenziali
+3) refactor progressivo:
+   - una modifica alla volta
+   - spiegazione chiara del perché
+4) dopo ogni modifica, assicurati che la logica resti invariata
+5) alla fine, genera una versione "prima/dopo" e una checklist di regole da seguire in futuro
+
+Vincoli:
+- non cambiare funzionalità, cambia qualità.`
+      },
+      {
+        id: "6.5",
+        title: "Trasformare codice avanzato in versione didattica",
+        description: "Semplificazione per principianti mantenendo correttezza",
+        useCase: "Quando hai codice avanzato che vuoi rendere comprensibile a chi sta imparando, con passaggi intermedi e commenti esplicativi.",
+        expectedOutput: [
+          "Overview del codice originale",
+          "Versione didattica con nomi espliciti e funzioni piccole",
+          "Esempio di esecuzione e output atteso",
+          "Evidenziazione delle semplificazioni"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio prendere del codice avanzato e trasformarlo in una versione didattica per principianti:
+- più leggibile
+- più commentata
+- con passaggi intermedi espliciti
+- con esempi
+
+Procedi così:
+1) fammi incollare il codice in un file (dimmi nome file)
+2) spiega a parole cosa fa il codice originale (overview)
+3) riscrivi il codice in versione didattica:
+   - nomi variabili espliciti
+   - funzioni piccole
+   - commenti chiari
+   - controlli sugli errori più espliciti
+4) aggiungi un esempio di esecuzione e output atteso
+5) evidenzia cosa è stato semplificato e cosa è rimasto identico
+
+Vincoli:
+- deve restare corretto e funzionante.`
+      },
+      {
+        id: "6.6",
+        title: "Spiegare errori passo passo fino alla soluzione",
+        description: "Debug guidato con comprensione profonda",
+        useCase: "Quando hai un errore e vuoi non solo risolverlo, ma capire esattamente perché succede e come prevenirlo in futuro.",
+        expectedOutput: [
+          "Spiegazione del significato dell'errore",
+          "Identificazione della vera causa (non dove esplode)",
+          "Piano di debug in 5-8 passi",
+          "Correzione minima con spiegazione"
+        ],
+        content: `Ho un errore e voglio che tu mi guidi passo passo fino alla soluzione.
+
+Procedi così:
+1) chiedimi di incollare:
+   - messaggio di errore completo
+   - stack trace completo
+   - file coinvolti (o porzione di codice rilevante)
+2) leggilo e spiegami:
+   - cosa significa l'errore
+   - dove nasce davvero (non dove "esplode")
+3) proponi un piano di debug in 5-8 passi massimo
+4) applica la correzione minima possibile
+5) spiegami perché la correzione funziona
+6) dimmi come prevenire lo stesso errore in futuro
+
+Vincoli:
+- niente salti logici: voglio capire ogni passaggio.`
+      },
+      {
+        id: "6.7",
+        title: "Individuare vulnerabilità di sicurezza nel codice",
+        description: "Audit di sicurezza con remediation concrete",
+        useCase: "Quando vuoi analizzare il tuo codice con mentalità da security auditor, identificando rischi e implementando fix.",
+        expectedOutput: [
+          "Lista vulnerabilità con descrizione e impatto",
+          "Classificazione per severità",
+          "Remediation concrete con codice",
+          "Best practice e hardening"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio fare un'analisi di sicurezza del codice.
+
+Procedi così:
+1) fammi importare/incollare i file del progetto in questa cartella
+2) analizza il codice con mentalità attacker + defender
+3) crea una lista di vulnerabilità o rischi, ognuno con:
+   - descrizione
+   - impatto
+   - scenario realistico di abuso (alto livello, senza istruzioni operative dannose)
+   - remediation concreta con modifica codice o pattern alternativo
+4) classifica per severità e priorità
+5) implementa le fix principali in modo incrementale e spiegato
+
+Vincoli:
+- non fornire istruzioni per sfruttare vulnerabilità su sistemi reali
+- concentrati su remediation, best practice e hardening.`
+      },
+      {
+        id: "6.8",
+        title: "Far scrivere una suite di test unitari",
+        description: "Test significativi con casi normali, edge cases e errori",
+        useCase: "Quando vuoi una suite di test completa per il tuo codice, con strategia chiara su cosa testare e cosa mockare.",
+        expectedOutput: [
+          "Identificazione funzioni testabili",
+          "Strategia di test (cosa testare/mockare)",
+          "Test per casi normali, edge cases e errori",
+          "Istruzioni per esecuzione locale e CI"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio che tu scriva una suite di test unitari per il mio codice.
+
+Procedi così:
+1) fammi importare o incollare il codice nella cartella (dimmi dove metterlo)
+2) identifica le funzioni/moduli testabili e le dipendenze esterne
+3) proponi una strategia di test:
+   - cosa testare
+   - cosa mockare
+   - cosa evitare
+4) crea la struttura dei test
+5) scrivi test significativi:
+   - casi normali
+   - edge cases
+   - casi di errore
+6) aggiungi istruzioni per eseguire i test in locale e in CI
+
+Vincoli:
+- i test devono essere utili, non "tanto per".`
+      },
+      {
+        id: "6.9",
+        title: "Code review guidata: cosa migliorare e perché",
+        description: "Review professionale con miglioramenti ad alto impatto",
+        useCase: "Quando vuoi una code review seria come in un team professionale, con priorità chiare e refactoring concreti.",
+        expectedOutput: [
+          "Analisi architettura, stile, qualità, sicurezza",
+          "Review strutturata con priorità",
+          "Motivazioni tecniche per ogni miglioramento",
+          "2-3 miglioramenti ad alto impatto applicati"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio una code review guidata del mio codice, come se fossi in un team serio.
+
+Procedi così:
+1) fammi importare/incollare il progetto in questa cartella
+2) analizza architettura, stile, qualità, error handling, performance (se rilevante), sicurezza di base
+3) produci una review strutturata con:
+   - ciò che va bene (breve)
+   - cosa migliorare (priorità alta/media/bassa)
+   - perché migliorarlo (motivazione tecnica)
+   - esempi di refactor o patch proposte
+4) applica 2-3 miglioramenti ad alto impatto direttamente nel codice e spiegami cosa hai fatto
+
+Vincoli:
+- niente pedanteria sterile: solo miglioramenti che contano davvero.`
+      }
+    ]
   },
   {
     id: "database",
