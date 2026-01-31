@@ -9,6 +9,7 @@ import { PromptCategoryView } from "@/components/prompts/PromptCategoryView";
 import { ToolsView } from "@/components/tools/ToolsView";
 import { CursorView } from "@/components/tools/CursorView";
 import { WindsurfView } from "@/components/tools/WindsurfView";
+import { ClaudeCodeView } from "@/components/tools/ClaudeCodeView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -45,6 +46,9 @@ const Index = () => {
       }
       if (selectedTool === "windsurf") {
         return <WindsurfView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "claude-code") {
+        return <ClaudeCodeView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }

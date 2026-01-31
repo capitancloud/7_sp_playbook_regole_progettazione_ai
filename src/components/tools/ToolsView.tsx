@@ -48,6 +48,7 @@ const tools: Tool[] = [
     icon: Bot,
     description: "Coding assistant by Anthropic",
     colorVar: "--phase-7",
+    hasContent: true,
   },
   {
     id: "lovable",
