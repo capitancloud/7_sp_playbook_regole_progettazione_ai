@@ -3012,7 +3012,183 @@ Voglio una base solida, non uno script fragile.`
     description: "Prompt per gestire versioning e collaborazione con Git",
     icon: "GitBranch",
     colorVar: "--phase-4",
-    prompts: []
+    prompts: [
+      {
+        id: "13.1",
+        title: "Inizializzare un repository Git",
+        description: "Setup professionale con .gitignore e configurazione base",
+        useCase: "Usa questo prompt quando parti da una cartella vuota e vuoi inizializzare Git in modo corretto fin dall'inizio, evitando errori tipici dei principianti.",
+        expectedOutput: [
+          "Repository Git inizializzato",
+          ".gitignore configurato correttamente",
+          "Spiegazione di cosa versionare e cosa no",
+          "Verifica stato del repository"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio inizializzare correttamente un repository Git per un progetto professionale.
+
+Obiettivi:
+- repository pulito
+- configurazione corretta fin da subito
+- evitare errori tipici dei principianti
+
+Procedi così:
+1) spiegami cos'è Git in modo pratico
+2) inizializza il repository
+3) crea un .gitignore adatto al progetto
+4) spiega cosa va versionato e cosa no
+5) mostrami come verificare lo stato del repo
+6) dimmi quali errori evitare all'inizio
+
+Voglio partire con fondamenta solide.`
+      },
+      {
+        id: "13.2",
+        title: "Scrivere commit chiari con l'aiuto di Cursor",
+        description: "Commit piccoli, messaggi professionali, cronologia leggibile",
+        useCase: "Quando hai modifiche da committare e vuoi farlo in modo professionale, con messaggi chiari e commit logicamente separati.",
+        expectedOutput: [
+          "Analisi delle modifiche correnti",
+          "Suddivisione in commit logici",
+          "Messaggi di commit professionali",
+          "Best practice per la cronologia"
+        ],
+        content: `Sto lavorando su un progetto versionato con Git.
+
+Voglio scrivere commit chiari, leggibili e professionali.
+
+Obiettivi:
+- commit piccoli e sensati
+- messaggi chiari
+- cronologia comprensibile anche dopo mesi
+
+Agisci così:
+1) analizza le modifiche correnti nel repository
+2) suggeriscimi come suddividerle in commit logici
+3) proponi messaggi di commit chiari e coerenti
+4) spiegami perché ogni commit ha senso
+5) dimmi cosa NON mettere mai in un commit
+
+Usa uno stile da team professionale.`
+      },
+      {
+        id: "13.3",
+        title: "Tornare indietro dopo un errore",
+        description: "Recupero da commit sbagliati, file modificati per errore, branch incasinati",
+        useCase: "Quando hai fatto un errore con Git e vuoi tornare indietro senza peggiorare la situazione, capendo cosa è successo.",
+        expectedOutput: [
+          "Analisi dello stato attuale del repository",
+          "Opzioni disponibili spiegate",
+          "Soluzione meno distruttiva applicata",
+          "Spiegazione di come evitare l'errore in futuro"
+        ],
+        content: `Ho fatto un errore con Git e voglio tornare indietro senza peggiorare la situazione.
+
+Scenario possibile:
+- commit sbagliato
+- file modificati per errore
+- branch incasinato
+
+Procedi così:
+1) fammi capire esattamente lo stato attuale del repo
+2) spiegami le opzioni disponibili (senza ancora eseguirle)
+3) consigliami la soluzione meno distruttiva
+4) guidami passo passo nel recupero
+5) spiegami cosa è successo e perché ha funzionato
+6) dimmi come evitare lo stesso errore in futuro
+
+Voglio capire, non solo riparare.`
+      },
+      {
+        id: "13.4",
+        title: "Lavorare con branch feature",
+        description: "Flusso di lavoro con branch isolati come in un team reale",
+        useCase: "Quando vuoi implementare nuove feature in modo isolato, mantenendo il branch main stabile e seguendo un flusso professionale.",
+        expectedOutput: [
+          "Branch feature creato correttamente",
+          "Flusso di lavoro isolato spiegato",
+          "Commit sul branch senza toccare main",
+          "Preparazione al merge"
+        ],
+        content: `Sto partendo da un repository Git funzionante.
+
+Voglio lavorare usando branch feature come in un team reale.
+
+Obiettivi:
+- isolamento delle feature
+- main branch stabile
+- flusso di lavoro chiaro
+
+Procedi così:
+1) spiegami il concetto di branch feature in modo pratico
+2) mostrami come creare un branch per una nuova feature
+3) lavorare sul branch senza toccare main
+4) fare commit corretti sul branch
+5) preparare il branch per il merge
+6) spiegami errori comuni con i branch
+
+Voglio un flusso realistico da team.`
+      },
+      {
+        id: "13.5",
+        title: "Fare merge senza rompere il progetto",
+        description: "Merge pulito, gestione conflitti, verifica post-merge",
+        useCase: "Quando hai una feature pronta su un branch e vuoi fare merge in modo sicuro, gestendo eventuali conflitti come un senior.",
+        expectedOutput: [
+          "Branch preparato al merge",
+          "Merge eseguito passo passo",
+          "Conflitti gestiti con spiegazioni",
+          "Verifica funzionamento post-merge"
+        ],
+        content: `Ho una feature pronta su un branch e voglio fare merge senza rompere il progetto.
+
+Obiettivi:
+- merge pulito
+- gestione conflitti
+- progetto stabile
+
+Procedi così:
+1) spiegami cosa succede durante un merge
+2) mostrami come preparare il branch al merge
+3) esegui il merge passo passo
+4) gestisci eventuali conflitti spiegando ogni scelta
+5) verifica che il progetto funzioni dopo il merge
+6) spiega come evitare conflitti in futuro
+
+Agisci come farebbe un senior in code review.`
+      },
+      {
+        id: "13.6",
+        title: "Generare changelog automatici",
+        description: "Changelog leggibile, convenzioni commit, generazione automatica",
+        useCase: "Quando vuoi mantenere un changelog aggiornato automaticamente, utile sia per il team che per gli utenti finali.",
+        expectedOutput: [
+          "Convenzione commit definita",
+          "Strumento changelog configurato",
+          "Changelog di esempio generato",
+          "Processo di mantenimento spiegato"
+        ],
+        content: `Sto lavorando su un progetto versionato con Git.
+
+Voglio generare un changelog automatico e leggibile.
+
+Obiettivi:
+- changelog utile per utenti e team
+- generazione automatica
+- coerenza con i commit
+
+Procedi così:
+1) spiega cos'è un changelog e perché serve
+2) definisci una convenzione di commit adatta
+3) configura uno strumento per generare il changelog
+4) genera un changelog di esempio
+5) spiega come mantenerlo aggiornato nel tempo
+6) mostra errori comuni da evitare
+
+Voglio un changelog che abbia davvero senso.`
+      }
+    ]
   },
   {
     id: "qualita-codice",
