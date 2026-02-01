@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { PhaseContent } from "@/components/phases/PhaseContent";
@@ -17,11 +17,27 @@ import { RorkView } from "@/components/tools/RorkView";
 import { Base44View } from "@/components/tools/Base44View";
 import { FigmaView } from "@/components/tools/FigmaView";
 import { GitHubCopilotView } from "@/components/tools/GitHubCopilotView";
+import { LoginScreen } from "@/components/auth/LoginScreen";
+import { isAuthenticated, setAuthenticated } from "@/lib/auth";
 
 const Index = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activePhase, setActivePhase] = useState("intro");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTool, setSelectedTool] = useState<string | null>(null);
+
+  useEffect(() => {
+    setIsLoggedIn(isAuthenticated());
+  }, []);
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
 
   const handlePhaseChange = (phaseId: string) => {
     setActivePhase(phaseId);
@@ -83,6 +99,10 @@ const Index = () => {
     return <PhaseContent phaseId={activePhase} />;
   };
 
+  if (!isLoggedIn) {
+    return <LoginScreen onLogin={handleLogin} />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Background ambient effects */}
@@ -92,7 +112,7 @@ const Index = () => {
         <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-phase-7/5 rounded-full blur-3xl" />
       </div>
 
-      <Sidebar activePhase={activePhase} onPhaseChange={handlePhaseChange} />
+      <Sidebar activePhase={activePhase} onPhaseChange={handlePhaseChange} onLogout={handleLogout} />
       
       <main className="relative pl-64">
         <Header activePhase={activePhase} />

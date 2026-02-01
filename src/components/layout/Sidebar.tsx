@@ -1,5 +1,6 @@
 import { phases } from "@/data/phases";
 import { cn } from "@/lib/utils";
+import { logout } from "@/lib/auth";
 import {
   BookOpen,
   Target,
@@ -15,6 +16,7 @@ import {
   Zap,
   Terminal,
   Wrench,
+  LogOut,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -33,9 +35,14 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 interface SidebarProps {
   activePhase: string;
   onPhaseChange: (phaseId: string) => void;
+  onLogout?: () => void;
 }
 
-export function Sidebar({ activePhase, onPhaseChange }: SidebarProps) {
+export function Sidebar({ activePhase, onPhaseChange, onLogout }: SidebarProps) {
+  const handleLogout = () => {
+    logout();
+    onLogout?.();
+  };
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-sidebar-border bg-sidebar">
       {/* Ambient glow effect */}
@@ -298,7 +305,7 @@ export function Sidebar({ activePhase, onPhaseChange }: SidebarProps) {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-sidebar-border/50 p-4">
+        <div className="border-t border-sidebar-border/50 p-4 space-y-3">
           <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/10 to-phase-6/10 p-4">
             <div className="absolute -right-6 -top-6 w-16 h-16 bg-primary/20 rounded-full blur-2xl" />
             <div className="relative flex items-start gap-3">
@@ -311,6 +318,15 @@ export function Sidebar({ activePhase, onPhaseChange }: SidebarProps) {
               </div>
             </div>
           </div>
+          
+          {/* Logout Button */}
+          <button
+            onClick={handleLogout}
+            className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
+          >
+            <LogOut className="h-4 w-4" />
+            <span>Esci</span>
+          </button>
         </div>
       </div>
     </aside>
