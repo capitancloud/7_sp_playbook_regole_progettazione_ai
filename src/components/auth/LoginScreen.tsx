@@ -52,7 +52,7 @@ export const LoginScreen = ({ onLogin }: LoginScreenProps) => {
             <img 
               src={superProgrammatoreLogo} 
               alt="Super Programmatore Logo" 
-              className="h-32 md:h-40 w-auto object-contain drop-shadow-2xl"
+              className="h-48 md:h-56 w-auto object-contain drop-shadow-2xl"
             />
           </div>
           <div>
