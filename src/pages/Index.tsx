@@ -17,6 +17,8 @@ import { RorkView } from "@/components/tools/RorkView";
 import { Base44View } from "@/components/tools/Base44View";
 import { FigmaView } from "@/components/tools/FigmaView";
 import { GitHubCopilotView } from "@/components/tools/GitHubCopilotView";
+import { ExercisesView } from "@/components/exercises/ExercisesView";
+import { ExerciseCategoryView } from "@/components/exercises/ExerciseCategoryView";
 import { LoginScreen } from "@/components/auth/LoginScreen";
 import { isAuthenticated, setAuthenticated } from "@/lib/auth";
 
@@ -25,6 +27,7 @@ const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTool, setSelectedTool] = useState<string | null>(null);
+  const [selectedExerciseCategory, setSelectedExerciseCategory] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoggedIn(isAuthenticated());
@@ -43,6 +46,7 @@ const Index = () => {
     setActivePhase(phaseId);
     setSelectedCategory(null);
     setSelectedTool(null);
+    setSelectedExerciseCategory(null);
   };
 
   const renderContent = () => {
@@ -95,6 +99,17 @@ const Index = () => {
         return <GitHubCopilotView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
+    }
+    if (activePhase === "exercises") {
+      if (selectedExerciseCategory) {
+        return (
+          <ExerciseCategoryView
+            categoryId={selectedExerciseCategory}
+            onBack={() => setSelectedExerciseCategory(null)}
+          />
+        );
+      }
+      return <ExercisesView onCategorySelect={setSelectedExerciseCategory} />;
     }
     return <PhaseContent phaseId={activePhase} />;
   };

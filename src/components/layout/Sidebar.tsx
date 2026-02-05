@@ -17,6 +17,7 @@ import {
   Terminal,
   Wrench,
   LogOut,
+  GraduationCap,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -300,6 +301,38 @@ export function Sidebar({ activePhase, onPhaseChange, onLogout }: SidebarProps) 
               activePhase === "tools" && "text-foreground"
             )}>
               Top Coding Tools
+            </span>
+          </button>
+
+          {/* ESERCIZI */}
+          <button
+            onClick={() => onPhaseChange("exercises")}
+            className={cn(
+              "group relative flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm transition-all duration-300 mt-2",
+              activePhase === "exercises"
+                ? "bg-gradient-to-r from-phase-3/20 to-phase-3/10 text-sidebar-accent-foreground shadow-lg"
+                : "text-muted-foreground hover:bg-phase-3/10 hover:text-sidebar-foreground"
+            )}
+          >
+            {activePhase === "exercises" && (
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-phase-3" />
+            )}
+            <span className={cn(
+              "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-all duration-300",
+              activePhase === "exercises" 
+                ? "bg-phase-3/20 shadow-md" 
+                : "bg-muted/50 group-hover:scale-110"
+            )}>
+              <GraduationCap className={cn(
+                "h-4 w-4",
+                activePhase === "exercises" ? "text-phase-3" : "text-muted-foreground"
+              )} />
+            </span>
+            <span className={cn(
+              "truncate font-medium transition-colors",
+              activePhase === "exercises" && "text-foreground"
+            )}>
+              Esercizi Pratici
             </span>
           </button>
         </nav>
